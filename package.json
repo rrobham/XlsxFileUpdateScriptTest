@@ -1,0 +1,28 @@
+{
+    "name": "excel-file-manuplation",
+    "version": "1.0.0",
+    "devDependencies": {
+        "cypress": "^10.3.1",
+        "cypress-multi-reporters": "^1.6.1",
+        "cypress-tags": "^1.1.2",
+        "cypress-teamcity-reporter": "^3.0.0",
+        "eslint-plugin-cypress": "^2.12.1",
+        "mocha": "^10.0.0",
+        "mochawesome": "^7.1.3",
+        "mochawesome-merge": "^4.2.1",
+        "typescript": "~4.6.4"
+    },
+    "dependencies": {
+        "ftp": "^0.3.10",
+        "node-xlsx": "^0.23.0"
+    },
+    "scripts": {
+        "cy:open": "cypress open",
+        "cy:open-batch2": "cypress open -C cypress/config/batch2.json",
+        "cy:run-batch1": "cypress run -C cypress/config/batch1.json",
+        "cy:run-batch2": "cypress run -C cypress/config/batch2.json",
+        
+        "cy:build": "tar czf cypress/cypress-artifacts.tar.gz cypress.config.ts tsconfig.json cypress/fixtures cypress/support cypress/tests"
+   
+    }
+}

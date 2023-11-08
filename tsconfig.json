@@ -1,0 +1,17 @@
+{
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "outDir": "dist-types",
+    "rootDir": ".",
+    "noImplicitOverride": true,
+    "baseUrl": "./",    
+    /* Type Checking */
+    
+    /* Completeness */
+    // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
+    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+  },
+  "include": [
+    "**/*.ts"
+  ]
+}
