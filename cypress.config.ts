@@ -9,6 +9,7 @@ const Client = require('ftp');
 
 export default defineConfig({
   video: true,
+  videosFolder: 'cypress/videos',
   e2e: {
     specPattern: "cypress/tests/*.cy.ts",
     supportFile:  "cypress/support/e2e.ts",
@@ -62,12 +63,13 @@ export default defineConfig({
           let ftpclient = new Client();
           return new Promise((resolve, reject) =>{            
             ftpclient.on('ready', function() {
-              try{
-                const files = fs.readdirSync(directoryPath);                
-                resolve(files);
-              }catch(e){
-                reject(e);
-              }
+              //try{
+              //  const files = fs.readdirSync(directoryPath);                
+              //  resolve(files);
+              //}catch(e){
+              //  reject(e);
+              //}
+              resolve("FTP ON READY")
               ftpclient.end();
             }); 
             ftpclient.on('error', function(err: any) {
