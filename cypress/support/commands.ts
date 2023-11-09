@@ -15,8 +15,8 @@ Cypress.Commands.add("parseXlsx", (inputFile) => {
     cy.task('getFilesList', {directoryPath})
  })
 
- Cypress.Commands.add("getFiles", (directoryPath) => {
-    cy.task('getFiles', {directoryPath})
+ Cypress.Commands.add("getFiles", ({host, user, password, directoryPath}) => {
+    cy.task('getFiles', {host, user, password, directoryPath})
  })
 
  

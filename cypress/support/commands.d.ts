@@ -10,7 +10,7 @@ declare namespace Cypress {
 
       getFilesList(directoryPath);
 
-      getFiles(directoryPath);
+      getFiles({host, user, password, directoryPath});
     }
   }
   

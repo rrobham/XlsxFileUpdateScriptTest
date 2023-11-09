@@ -57,7 +57,7 @@ export default defineConfig({
             return null
           }
         },
-        getFiles({directoryPath}){    
+        getFiles({host, user, password, directoryPath}){    
           let ftpclient = new Client();
           return new Promise((resolve, reject) =>{            
             ftpclient.on('ready', function() {
@@ -69,8 +69,7 @@ export default defineConfig({
                 reject(e);
               }
             });              
-            // connect to localhost:21 as anonymous
-            ftpclient.connect({host: Cypress.env('ftpHost'), port: 22, user: Cypress.env('ftpUser'), password: Cypress.env('ftpPassword'), connTimeout: 60000});              
+            ftpclient.connect({host: host, port: 22, user: user, password: password, connTimeout: 60000});              
           })
         }
       });
