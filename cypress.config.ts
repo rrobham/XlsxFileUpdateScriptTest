@@ -12,6 +12,7 @@ export default defineConfig({
   e2e: {
     specPattern: "cypress/tests/*.cy.ts",
     supportFile:  "cypress/support/e2e.ts",
+    screenshotOnRunFailure: true,
     env:{
       ftpHost: '',
       ftpPort: 22,
@@ -77,6 +78,6 @@ export default defineConfig({
           })
         }
       });
-    },
-  },
+    }
+  }
 });

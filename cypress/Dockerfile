@@ -4,7 +4,7 @@
 #
 # yarn cy:build-<test-type>
 
-FROM cypress/included:10.3.1
+FROM cypress/included:12.3.0
 
 # From here on we use the least-privileged `node` user to run the backend.
 USER node
