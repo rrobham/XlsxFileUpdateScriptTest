@@ -10,7 +10,7 @@ declare namespace Cypress {
 
       getFilesList(directoryPath);
 
-      connectFTP(directoryPath);
+      getFiles(directoryPath);
     }
   }
   

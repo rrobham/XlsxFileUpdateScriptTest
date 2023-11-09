@@ -15,8 +15,8 @@ Cypress.Commands.add("parseXlsx", (inputFile) => {
     cy.task('getFilesList', {directoryPath})
  })
 
- Cypress.Commands.add("connectFTP", (directoryPath) => {
-    cy.task('connectFTP', {directoryPath})
+ Cypress.Commands.add("getFiles", (directoryPath) => {
+    cy.task('getFiles', {directoryPath})
  })
 
  

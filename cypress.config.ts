@@ -12,9 +12,12 @@ export default defineConfig({
   e2e: {
     specPattern: "cypress/tests/*.cy.ts",
     supportFile:  "cypress/support/e2e.ts",
-    //env: {
-    //  downloadsFolder: "cypress/fixtures",
-   //},
+    env:{
+      ftpHost: '',
+      ftpPort: 22,
+      ftpUser: '',
+      ftpPassword: ''
+    },
     setupNodeEvents(on, config) {
       // implement node event listeners here
       on('task', {
@@ -54,26 +57,21 @@ export default defineConfig({
             return null
           }
         },
-        connectFTP({directoryPath}){    
-          let c = new Client();
-          try{
-            c.on('ready', function() {
-              c.list(function(err, list) {
-                if (err) throw err;
-                console.log(list);
-              
-                c.end();
-
-                return list;
-              });
-            });
+        getFiles({directoryPath}){    
+          let ftpclient = new Client();
+          return new Promise((resolve, reject) =>{            
+            ftpclient.on('ready', function() {
+              try{
+                const files = fs.readdirSync(directoryPath);
+                ftpclient.end();
+                resolve(files);
+              }catch(e){
+                reject(e);
+              }
+            });              
             // connect to localhost:21 as anonymous
-            c.connect({secure:false});
-            
-          }catch(e){
-            return null;
-          }
-
+            ftpclient.connect({host: '', port: 22, user: '', password: '', connTimeout: 60000});              
+          })
         }
       });
     },
