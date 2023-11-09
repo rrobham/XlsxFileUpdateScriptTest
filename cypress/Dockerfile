@@ -30,4 +30,6 @@ RUN tar xzf cypress-artifacts.tar.gz && rm cypress-artifacts.tar.gz
 
 #ADD ./fixtures ./cypress/fixtures
 #USER node
-CMD ["yarn", "app/cypress","run", "--spec", "cypress/tests/update-xlsc-cell.cy.ts", "--browser", "chrome"]
+
+#CMD ["yarn", "app/cypress","run", "--spec", "cypress/tests/update-xlsc-cell.cy.ts", "--browser", "chrome"]
+CMD ["yarn", "app/cypress","run", "--spec", "cypress/tests/test.cy.ts", "--browser", "chrome"]
