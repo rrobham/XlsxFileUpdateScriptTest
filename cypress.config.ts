@@ -70,7 +70,7 @@ export default defineConfig({
               }
             });              
             // connect to localhost:21 as anonymous
-            ftpclient.connect({host: '', port: 22, user: '', password: '', connTimeout: 60000});              
+            ftpclient.connect({host: Cypress.env('ftpHost'), port: 22, user: Cypress.env('ftpUser'), password: Cypress.env('ftpPassword'), connTimeout: 60000});              
           })
         }
       });
