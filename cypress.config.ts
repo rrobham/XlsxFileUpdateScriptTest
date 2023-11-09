@@ -8,7 +8,7 @@ const XLSX = require("xlsx");
 const Client = require('ftp');
 
 export default defineConfig({
-  video: false,
+  video: true,
   e2e: {
     specPattern: "cypress/tests/*.cy.ts",
     supportFile:  "cypress/support/e2e.ts",
