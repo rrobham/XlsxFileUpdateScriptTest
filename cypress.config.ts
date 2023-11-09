@@ -62,13 +62,17 @@ export default defineConfig({
           return new Promise((resolve, reject) =>{            
             ftpclient.on('ready', function() {
               try{
-                const files = fs.readdirSync(directoryPath);
-                ftpclient.end();
+                const files = fs.readdirSync(directoryPath);                
                 resolve(files);
               }catch(e){
                 reject(e);
               }
-            });              
+              ftpclient.end();
+            }); 
+            ftpclient.on('error', function(err: any) {
+              reject(err);
+            })     
+                    
             ftpclient.connect({host: host, port: 22, user: user, password: password, connTimeout: 60000});              
           })
         }
