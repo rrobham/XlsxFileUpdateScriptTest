@@ -59,7 +59,7 @@ export default defineConfig({
             return null
           }
         },
-        getFiles({host, user, password, directoryPath}){    
+        getFiles(props){    
           let ftpclient = new Client();
           return new Promise((resolve, reject) =>{            
             ftpclient.on('ready', function() {
@@ -76,7 +76,7 @@ export default defineConfig({
               reject(err);
             })     
                     
-            ftpclient.connect({host: host, port: 22, user: user, password: password, connTimeout: 60000});              
+            ftpclient.connect({host: props.host, port: 22, user: props.user, password: props.password, connTimeout: 60000});              
           })
         }
       });
